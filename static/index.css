@@ -1,0 +1,214 @@
+body{
+    line-height: 1;
+    margin: 0;
+}
+ 
+/* ###### Nav bar ###### */
+
+nav{
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+ 
+nav ul{
+    background-color: rgb(228, 228, 228);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+ul.topnav li{
+    list-style: none;
+    float: left;
+}
+
+ul.topnav li.topnav-right{
+    float: right; 
+}
+
+ul.topnav li a{
+    display: block;
+    text-decoration: none;
+    min-height: 16px;
+    text-align: center;
+    padding: 14px;
+    color: black;
+    font-size: 20px;
+}
+
+ul.topnav li a:hover{
+    background-color: #202020;
+    color: #fff;
+}
+ul.topnav li a:active{
+    background-color: #202020;
+    color: #fff;
+}
+
+/* ###### Body default ###### */
+
+.container{
+    width: 100%;
+    margin: auto;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.row::after{
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.col-1{width: 8.33%;}
+.col-2{width: 16.66%;}
+.col-3{width: 25%;}
+.col-4{width: 33.33%;}
+.col-5{width: 41.66%;}
+.col-6{width: 50%;}
+.col-7{width: 58.33%;}
+.col-8{width: 66.66%;}
+.col-9{width: 75%;}
+.col-10{width: 83.33%;}
+.col-11{width: 91.66%;}
+/* .col-12{width: 100%;} */
+/* .contain{width: 100%;} */
+
+*{
+    box-sizing: border-box;
+}
+
+/* ###### Body Custom ###### */
+
+#bgcolor{
+    background: #202020;
+    /* background: -webkit-linear-gradient(#050a11,#e3eaf5);
+    background: -o-linear-gradient(#102542,#e3eaf5);
+    background: -moz-linear-gradient(#102542,#e3eaf5);
+    background: linear-gradient(#050a11,#e3eaf5); */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.youare{
+    font-size: 50px;
+    font-weight:500;
+    font-family: 'Ubuntu', sans-serif;
+    color: #fff;
+    padding: 10px 30px;
+    display: block;
+    text-align: center;
+    margin: 5px;
+    /* margin: auto; */
+}
+
+.contain {
+    text-align: center;
+    margin: 5px;
+    margin: auto;
+    padding: 10px 30px;
+    display: inline-block;
+}
+
+.typed-out{
+    color: white;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    font-size: 2.6rem;
+    width: 0;
+    animation: typing 2s forwards,
+                blink 1s infinite;
+  }
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    from { border-color: transparent }
+    to { border-color: orange; }
+  }
+
+button{
+    border: none;
+    padding: 0px 0px;
+    border-radius: 20px;
+    font-family: monospace;
+    background-color: rgb(42, 148, 190);
+    border: 2px solid orange;
+}
+button a{
+    color: #fdfafa;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    padding: 5px 20px;
+    text-decoration: none;
+}
+
+button:hover{
+    background-color: rgb(31, 117, 151);
+}
+
+button a:hover{
+    color: #fff;
+}
+
+div.box1{
+    color: white;
+    text-align: center;
+    margin: 25px;
+    padding: 36px 24px 40px 300px;
+}
+
+div.box2{
+    color: white;
+    text-align: center;
+    margin: 25px;
+    padding: 36px 300px 40px 24px;
+}
+
+div.icon{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.icon img{
+    width: 100px;
+    height: 100px;
+}
+
+/* ###### Mobile ###### */
+
+@media screen and (max-width: 680px){
+
+    .col-6{
+        width: 100%;
+        margin: 0;
+    }
+
+    div.box1, div.box2{
+        padding: 5px;
+        display: block;
+    }
+
+    .container{
+        padding-top: 20%;
+        padding-bottom: 40%;
+    }
+    div.youare{
+        font-size: 50px;
+    }
+}

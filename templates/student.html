@@ -1,0 +1,142 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Exam Proctor</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="{% static 'images/aboutlogo.png' %}" type="image/x-icon">
+
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #201c1c;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+            border: 3.5px solid salmon;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+        }
+
+        .main .checkbox {
+            font-weight: 400;
+        }
+
+        .main .form-control {
+            margin: 16px 3px;
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .main .form-control:focus {
+            z-index: 2;
+        }
+
+        .main input[type="rollno"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .main input[type="code"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body onload="check()" class="text-center" font-family: 'Ubuntu' , sans-serif;>
+
+    <!-- <nav>
+        <ul class="topnav">
+            <li><a href="#home">EXAMPROCTOR</a></li>
+            <li class="topnav-right"><a href="#about">About</a></li>
+            <li class="topnav-right"><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <hr> -->
+    <form class="main" method="post" action="/startTest">
+        {% csrf_token %}
+        <img class="mb-4" src="{% static 'images/studentlogo.png' %}" alt="" width="150" height="150">
+        <h1 class="h3 mb-3 font-weight-normal"><b>Please Fill Credentials</b></h1>
+        <label for="inputRollNO" class="sr-only"></label>
+        <input type="number" id="inputRollNO" name="roll" class="form-control" placeholder="Roll No." required
+            autofocus>
+        <label for="inputcode" class="sr-only"> Paper Code</label>
+        <input type="code" id="inputcode" name="code" class="form-control" placeholder="Code" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Next</button>
+        <!-- <br/>
+        <a href="logout"><input type="submit" class="btn btn-lg btn-primary btn-block" value="Logout Sessions"></a> -->
+
+    </form>
+    <script>
+        function check() {
+            if ("{{code}}" == "4") {
+                alert("Already logged out");
+            }
+            if ("{{code}}" == "5") {
+                alert("Logged out successfully");
+            }
+            else if ("{{code}}" == "3") {
+                alert("Invalid paper code, Please contact your teacher.")
+            }
+            else if ("{{code}}" == "2") {
+                alert("Multiple sessions detected. If you have started this test on any other device then finish it from that device only");
+            }
+            else {
+                alert("You can't change your device after this step. If you want to switch, then please do it now.")
+            }
+        }
+    </script>
+</body>
+
+</html>
